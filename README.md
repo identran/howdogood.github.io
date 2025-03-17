@@ -1,6 +1,6 @@
 # How Do Good?
 
-**A simple web application that suggests random acts of kindness and hosts curated classifieds aligned with our values.**
+**A simple web application that suggests random acts of kindness and hosts curated classifieds aligned with humanist, nurturing values.**
 
 [www.howdogood.com](http://www.howdogood.com)
 
