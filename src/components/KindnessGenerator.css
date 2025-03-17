@@ -1,0 +1,55 @@
+/*
+filename: KindnessGenerator.css
+date: March 16, 2025
+programmer: James Tran
+title: Kindness Generator Component Styles
+purpose: Styling for the kindness generator component
+*/
+
+/* ┌──────────────────────────────────────┐
+    KINDNESS GENERATOR COMPONENT
+└──────────────────────────────────────┘ */
+
+.kindness-generator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh;
+    width: 100%;
+    padding: var(--spacing-medium);
+}
+
+.kindness-act {
+    font-size: var(--font-size-medium);
+    max-width: 600px;
+    margin: var(--spacing-large) auto;
+    padding: var(--spacing-medium);
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity var(--timing-medium) ease-in-out, transform var(--timing-medium) ease-in-out;
+}
+
+.kindness-act.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation for the initial appearance */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.kindness-act.initial-show {
+    animation: slideUp var(--timing-medium) ease-in-out forwards;
+}

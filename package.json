@@ -1,0 +1,27 @@
+{
+  "name": "howdogood",
+  "version": "1.0.0",
+  "description": "A web application that suggests random acts of kindness and hosts curated classifieds",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "kindness",
+    "good",
+    "random",
+    "acts",
+    "classifieds",
+    "ethical"
+  ],
+  "author": "James Tran",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/howdogood.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/howdogood/issues"
+  },
+  "homepage": "https://www.howdogood.com"
+}

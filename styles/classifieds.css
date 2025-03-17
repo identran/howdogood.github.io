@@ -1,0 +1,94 @@
+/*
+filename: classifieds.css
+date: March 16, 2025
+programmer: James Tran
+title: How Do Good? - Classifieds Stylesheet
+purpose: Provides styling for the classifieds page
+*/
+
+/* ┌──────────────────────────────────────┐
+    CLASSIFIEDS LAYOUT
+└──────────────────────────────────────┘ */
+
+.page-description {
+    margin-bottom: var(--spacing-large);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.classifieds-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-medium);
+    margin-top: var(--spacing-large);
+}
+
+/* ┌──────────────────────────────────────┐
+    CLASSIFIED CARDS
+└──────────────────────────────────────┘ */
+
+.classified-card {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: var(--spacing-medium);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--timing-fast) ease, box-shadow var(--timing-fast) ease;
+}
+
+.classified-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.classified-card h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-small);
+    color: var(--accent);
+}
+
+.classified-card .category {
+    display: inline-block;
+    background-color: var(--subtle);
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: var(--spacing-small);
+}
+
+.classified-card .contact {
+    margin-top: var(--spacing-small);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ┌──────────────────────────────────────┐
+    TAGS
+└──────────────────────────────────────┘ */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: var(--spacing-small);
+}
+
+.tag {
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* ┌──────────────────────────────────────┐
+    RESPONSIVE STYLES
+└──────────────────────────────────────┘ */
+
+@media (max-width: 768px) {
+    .classifieds-container {
+        grid-template-columns: 1fr;
+    }
+}
