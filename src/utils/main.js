@@ -56,6 +56,9 @@ function initializeApp() {
     
     // Start the kindness act generation process
     generateKindnessAct();
+
+    // Add footer with Buy Me a Coffee link
+    createFooter(appContainer);
 }
 
 /**
@@ -90,6 +93,36 @@ function createNavigation(parent) {
     nav.appendChild(navList);
     
     parent.appendChild(nav);
+}
+
+/**
+ * Create the footer with Buy Me a Coffee link
+ * @param {HTMLElement} parent - The parent element to append footer to
+ */
+function createFooter(parent) {
+    const footer = document.createElement('footer');
+    footer.className = 'footer';
+    
+    const container = document.createElement('div');
+    container.className = 'container';
+    
+    const coffeeLink = document.createElement('a');
+    coffeeLink.href = 'https://buymeacoffee.com/yotm';
+    coffeeLink.target = '_blank';
+    coffeeLink.rel = 'noopener noreferrer';
+    coffeeLink.className = 'coffee-link';
+    
+    const coffeeIcon = document.createElement('span');
+    coffeeIcon.className = 'coffee-icon';
+    coffeeIcon.textContent = '☕';
+    
+    coffeeLink.appendChild(coffeeIcon);
+    coffeeLink.appendChild(document.createTextNode(' Support this project'));
+    
+    container.appendChild(coffeeLink);
+    footer.appendChild(container);
+    
+    parent.appendChild(footer);
 }
 
 /* ┌──────────────────────────────────────┐
