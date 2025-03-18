@@ -201,6 +201,62 @@ nav a:hover {
 }
 
 /* ┌──────────────────────────────────────┐
+    FOOTER
+└──────────────────────────────────────┘ */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-small);
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: var(--bg-secondary);
+    opacity: 0.8;
+    transition: opacity var(--timing-fast) ease;
+    z-index: 100;
+}
+
+.footer:hover {
+    opacity: 1;
+}
+
+.coffee-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    transition: all var(--timing-fast) ease;
+    border: 1px solid var(--subtle);
+}
+
+.coffee-link:hover {
+    background-color: rgba(189, 147, 249, 0.1);
+    color: var(--highlight);
+    border-color: var(--highlight);
+    transform: translateY(-2px);
+}
+
+.coffee-icon {
+    font-size: 1.1rem;
+}
+
+/* Add to your responsive styles section */
+@media (max-width: 768px) {
+    .footer {
+        padding: var(--spacing-small) 0;
+    }
+    
+    .coffee-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ┌──────────────────────────────────────┐
     RESPONSIVE STYLES
 └──────────────────────────────────────┘ */
 @media (max-width: 768px) {
