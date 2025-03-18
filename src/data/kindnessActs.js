@@ -190,6 +190,12 @@ const kindnessActs = [
         act: "Tutor a student who is struggling with a subject you know well",
         category: "community",
         effort: "high"
+    }.
+    {
+        id: 31,
+        act: "Write a genuine note of appreciation to someone whose work often goes unnoticed and give it to them directly",
+        category: "social",
+        effort: "medium"
     }
 ];
 
