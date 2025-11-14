@@ -31,30 +31,33 @@ purpose: Provides styling for the classifieds page
 
 .classified-card {
     background-color: var(--bg-secondary);
-    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-medium);
     padding: var(--spacing-medium);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform var(--timing-fast) ease, box-shadow var(--timing-fast) ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all var(--timing-fast) ease;
 }
 
 .classified-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 16px rgba(124, 152, 133, 0.2);
+    border-color: var(--accent-primary);
 }
 
 .classified-card h3 {
     margin-top: 0;
     margin-bottom: var(--spacing-small);
-    color: var(--accent);
+    color: var(--accent-primary);
 }
 
 .classified-card .category {
     display: inline-block;
-    background-color: var(--subtle);
-    color: var(--text-primary);
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
     font-size: 0.8rem;
-    padding: 3px 8px;
-    border-radius: 4px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: var(--radius-small);
     margin-bottom: var(--spacing-small);
 }
 

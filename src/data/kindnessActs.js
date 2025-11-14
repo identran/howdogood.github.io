@@ -190,12 +190,186 @@ const kindnessActs = [
         act: "Tutor a student who is struggling with a subject you know well",
         category: "community",
         effort: "high"
-    }.
+    },
     {
         id: 31,
         act: "Write a genuine note of appreciation to someone whose work often goes unnoticed and give it to them directly",
         category: "social",
         effort: "medium"
+    },
+    {
+        id: 32,
+        act: "Smile and make eye contact with people you pass on the street",
+        category: "social",
+        effort: "minimal"
+    },
+    {
+        id: 33,
+        act: "Bring reusable bags to the grocery store and encourage others to do the same",
+        category: "environment",
+        effort: "low"
+    },
+    {
+        id: 34,
+        act: "Offer to take a photo for tourists or groups struggling with selfies",
+        category: "social",
+        effort: "minimal"
+    },
+    {
+        id: 35,
+        act: "Compliment a coworker on their recent accomplishment",
+        category: "personal",
+        effort: "minimal"
+    },
+    {
+        id: 36,
+        act: "Donate blood at your local blood bank",
+        category: "community",
+        effort: "medium"
+    },
+    {
+        id: 37,
+        act: "Leave quarters at a laundromat for someone who might need them",
+        category: "social",
+        effort: "low"
+    },
+    {
+        id: 38,
+        act: "Call a family member you haven't spoken to in a while",
+        category: "personal",
+        effort: "low"
+    },
+    {
+        id: 39,
+        act: "Pick up groceries for an elderly or disabled neighbor",
+        category: "community",
+        effort: "medium"
+    },
+    {
+        id: 40,
+        act: "Share helpful resources or articles with someone who could benefit from them",
+        category: "social",
+        effort: "low"
+    },
+    {
+        id: 41,
+        act: "Mentor someone younger in your profession or hobby",
+        category: "community",
+        effort: "high"
+    },
+    {
+        id: 42,
+        act: "Say 'please' and 'thank you' more often and truly mean it",
+        category: "social",
+        effort: "minimal"
+    },
+    {
+        id: 43,
+        act: "Support local artists by purchasing their work or attending their shows",
+        category: "community",
+        effort: "medium"
+    },
+    {
+        id: 44,
+        act: "Bring coffee or treats to your coworkers",
+        category: "social",
+        effort: "low"
+    },
+    {
+        id: 45,
+        act: "Spend quality time with a loved one without your phone",
+        category: "personal",
+        effort: "medium"
+    },
+    {
+        id: 46,
+        act: "Feed birds or squirrels in your local park",
+        category: "environment",
+        effort: "low"
+    },
+    {
+        id: 47,
+        act: "Return shopping carts to the store entrance",
+        category: "social",
+        effort: "minimal"
+    },
+    {
+        id: 48,
+        act: "Offer your seat to someone on public transportation",
+        category: "social",
+        effort: "minimal"
+    },
+    {
+        id: 49,
+        act: "Create a playlist for someone based on their music taste",
+        category: "personal",
+        effort: "low"
+    },
+    {
+        id: 50,
+        act: "Apologize sincerely to someone you've wronged",
+        category: "personal",
+        effort: "high"
+    },
+    {
+        id: 51,
+        act: "Share your knowledge by writing a helpful blog post or tutorial",
+        category: "community",
+        effort: "high"
+    },
+    {
+        id: 52,
+        act: "Give genuine compliments to service workers (cashiers, servers, etc.)",
+        category: "social",
+        effort: "minimal"
+    },
+    {
+        id: 53,
+        act: "Organize a neighborhood cleanup event",
+        category: "environment",
+        effort: "high"
+    },
+    {
+        id: 54,
+        act: "Buy from local farmers markets instead of big chains",
+        category: "community",
+        effort: "low"
+    },
+    {
+        id: 55,
+        act: "Send an encouraging message to someone going through a tough time",
+        category: "personal",
+        effort: "low"
+    },
+    {
+        id: 56,
+        act: "Repair something instead of throwing it away",
+        category: "environment",
+        effort: "medium"
+    },
+    {
+        id: 57,
+        act: "Volunteer to read to children at a local library or school",
+        category: "community",
+        effort: "medium"
+    },
+    {
+        id: 58,
+        act: "Give someone your full attention when they're speaking to you",
+        category: "social",
+        effort: "low"
+    },
+    {
+        id: 59,
+        act: "Share your skills by teaching a free workshop or class",
+        category: "community",
+        effort: "high"
+    },
+    {
+        id: 60,
+        act: "Leave a book you've enjoyed in a public place for someone else to discover",
+        category: "social",
+        effort: "low"
     }
 ];
 
