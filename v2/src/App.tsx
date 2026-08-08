@@ -10,20 +10,18 @@ purpose: Top-level layout (nav, home placeholder with demo chart, footer)
 import { BarChart } from "@/components/charts/bar-chart";
 import { Bar } from "@/components/charts/bar";
 import { BarYAxis } from "@/components/charts/bar-y-axis";
+import { actions, datasetUpdated } from "@/data/actions";
 
 /* ┌──────────────────────────────────────┐
-    DEMO DATA (Phase A placeholder)
+    CHART DATA (from curated dataset)
 └──────────────────────────────────────┘ */
 
-// Illustrative only — Phase B replaces this with the curated, cited
-// dataset in data/actions.json. Do not present these numbers as real.
-const demoImpactData = [
-  { name: "Malaria net donation", impact: 100 },
-  { name: "Vitamin A supplement", impact: 85 },
-  { name: "Deworming program", impact: 60 },
-  { name: "Direct cash transfer", impact: 11 },
-  { name: "Typical local charity", impact: 3 },
-];
+// Top actions by editorial impact-per-resource score — see
+// docs/METHODOLOGY.md for how the score is derived and its limits.
+const topActions = [...actions]
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 8)
+  .map((a) => ({ name: a.title, score: a.score }));
 
 /* ┌──────────────────────────────────────┐
     LAYOUT COMPONENTS
@@ -66,22 +64,23 @@ function DemoChart() {
           Not all good deeds are equal
         </h2>
         <p className="mt-1 mb-6 text-sm text-muted-foreground">
-          Relative impact per $100 donated — illustrative preview. Real,
-          fully-cited data ships with the Impact Explorer.
+          Top actions by impact-per-resource score (0-100, editorial
+          synthesis) from our dataset of {actions.length} evidence-rated
+          actions.
         </p>
         <BarChart
-          data={demoImpactData}
+          data={topActions}
           xDataKey="name"
           orientation="horizontal"
           aspectRatio="2 / 1"
         >
-          <Bar dataKey="impact" fill="var(--chart-1)" />
+          <Bar dataKey="score" fill="var(--chart-1)" />
           <BarYAxis />
         </BarChart>
         <p className="mt-4 text-xs text-muted-foreground">
-          Preview numbers are illustrative. The live version will cite
-          GiveWell, Our World in Data and peer-reviewed research for every
-          figure — with confidence grades.
+          Every figure cites GiveWell, Our World in Data, or peer-reviewed
+          research, with confidence grades — the score never stands alone.
+          Dataset last reviewed {datasetUpdated}.
         </p>
       </div>
     </section>

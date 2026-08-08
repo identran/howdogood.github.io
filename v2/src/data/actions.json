@@ -1,0 +1,844 @@
+{
+  "$schema_note": "Curated dataset of evidence-ranked actions. See docs/METHODOLOGY.md for field definitions, the confidence scale, and how 'score' is derived. Every impact figure must carry at least one source with an access date.",
+  "version": "0.1.0",
+  "updated": "2026-08-08",
+  "actions": [
+    {
+      "id": "malaria-net-donation",
+      "title": "Donate $10 to a top-rated malaria charity",
+      "kind": "donation",
+      "categories": ["health", "global"],
+      "cost_usd": 10,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "expected fraction of a life saved",
+        "value": 0.002,
+        "explanation": "GiveWell estimates roughly $3,000-$5,500 to save a life via its top charities; insecticide-treated nets cost about $5 each, so $10 buys ~2 nets and roughly 1/500th of a statistical life saved.",
+        "confidence": "high"
+      },
+      "score": 95,
+      "sources": [
+        { "name": "GiveWell — How much does it cost to save a life?", "url": "https://www.givewell.org/how-much-does-it-cost-to-save-a-life", "accessed": "2026-08-08" },
+        { "name": "GiveWell — Against Malaria Foundation review", "url": "https://www.givewell.org/charities/amf", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.againstmalaria.com/"
+    },
+    {
+      "id": "vitamin-a-donation",
+      "title": "Fund vitamin A supplements for children",
+      "kind": "donation",
+      "categories": ["health", "global"],
+      "cost_usd": 25,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "children supplemented",
+        "value": 15,
+        "explanation": "Vitamin A supplementation costs roughly $1-2 per child per round and reduces child mortality; GiveWell funded Helen Keller Intl programs at an estimated ~$3,500 per life saved (2022-2024 average).",
+        "confidence": "high"
+      },
+      "score": 93,
+      "sources": [
+        { "name": "GiveWell blog — How we're searching for the best ways to help in 2026", "url": "https://blog.givewell.org/2026/05/18/how-were-searching-for-the-best-ways-to-help-in-2026/", "accessed": "2026-08-08" },
+        { "name": "GiveWell — Top charities", "url": "https://www.givewell.org/charities/top-charities", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://helenkellerintl.org/"
+    },
+    {
+      "id": "deworming-donation",
+      "title": "Fund school deworming treatments",
+      "kind": "donation",
+      "categories": ["health", "education", "global"],
+      "cost_usd": 10,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "children treated for a year",
+        "value": 10,
+        "explanation": "Mass school-based deworming costs well under $1 per child per year. Long-term studies suggest income gains for treated children, though the size of developmental effects is debated among researchers.",
+        "confidence": "medium"
+      },
+      "score": 78,
+      "sources": [
+        { "name": "GiveWell — Deworming cost-effectiveness", "url": "https://www.givewell.org/international/technical/programs/deworming/cost-effectiveness", "accessed": "2026-08-08" },
+        { "name": "Evidence Action — Deworm the World", "url": "https://www.evidenceaction.org/dewormtheworld", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.evidenceaction.org/dewormtheworld"
+    },
+    {
+      "id": "direct-cash-transfer",
+      "title": "Send cash directly to a family in extreme poverty",
+      "kind": "donation",
+      "categories": ["poverty", "global"],
+      "cost_usd": 50,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "dollars delivered to recipients",
+        "value": 40,
+        "explanation": "GiveDirectly delivers roughly $0.80 of every donated dollar to households in extreme poverty. Dozens of RCTs show cash transfers increase earnings, assets and wellbeing; GiveWell uses cash as its benchmark intervention.",
+        "confidence": "high"
+      },
+      "score": 70,
+      "sources": [
+        { "name": "GiveDirectly — Financials", "url": "https://www.givedirectly.org/financials/", "accessed": "2026-08-08" },
+        { "name": "GiveWell — Cost-effectiveness criteria", "url": "https://www.givewell.org/how-we-work/our-criteria/cost-effectiveness", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.givedirectly.org/"
+    },
+    {
+      "id": "clean-water-donation",
+      "title": "Fund safe drinking water chlorination",
+      "kind": "donation",
+      "categories": ["health", "global"],
+      "cost_usd": 15,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "person-years of safer water",
+        "value": 10,
+        "explanation": "Chlorine dispenser programs cost on the order of $1.50 per person per year. GiveWell has directed over $150M to water chlorination as among the most cost-effective water interventions, though 2026 coverage surveys flagged adherence concerns in some programs.",
+        "confidence": "medium"
+      },
+      "score": 76,
+      "sources": [
+        { "name": "GiveWell blog — July 2026 updates", "url": "https://blog.givewell.org/2026/08/03/july-2026-updates/", "accessed": "2026-08-08" },
+        { "name": "Evidence Action — Safe water", "url": "https://www.evidenceaction.org/safewaternow", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.evidenceaction.org/safewaternow"
+    },
+    {
+      "id": "effective-climate-donation",
+      "title": "Donate $10 to a vetted high-leverage climate charity",
+      "kind": "donation",
+      "categories": ["environment", "global"],
+      "cost_usd": 10,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "tonnes CO2e averted (estimated range midpoint)",
+        "value": 2,
+        "explanation": "Evaluators like Giving Green and Founders Pledge estimate their top climate recommendations avert CO2 at single-digit dollars per tonne — far cheaper than most personal offsets. Estimates are inherently uncertain and vary widely by charity.",
+        "confidence": "low"
+      },
+      "score": 72,
+      "sources": [
+        { "name": "Giving Green — Research", "url": "https://www.givinggreen.earth/", "accessed": "2026-08-08" },
+        { "name": "Founders Pledge — Climate", "url": "https://www.founderspledge.com/funds/climate-change-fund", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.givinggreen.earth/"
+    },
+    {
+      "id": "sight-surgery-donation",
+      "title": "Fund sight-restoring cataract surgery",
+      "kind": "donation",
+      "categories": ["health", "global"],
+      "cost_usd": 50,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "fraction of a cataract surgery funded",
+        "value": 1,
+        "explanation": "In some low-income countries, sight-restoring cataract surgery can be delivered for roughly $25-$100 (The Fred Hollows Foundation cites as little as $25 in some programs). Restored sight transforms independence and earning ability.",
+        "confidence": "medium"
+      },
+      "score": 70,
+      "sources": [
+        { "name": "The Fred Hollows Foundation", "url": "https://www.hollows.org/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.hollows.org/"
+    },
+    {
+      "id": "mental-health-donation",
+      "title": "Fund depression treatment in low-income countries",
+      "kind": "donation",
+      "categories": ["health", "global"],
+      "cost_usd": 100,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "people treated for depression (approx.)",
+        "value": 0.5,
+        "explanation": "Group interpersonal therapy delivered by lay counselors (e.g. StrongMinds) treats depression for roughly $100-$250 per person. Wellbeing-focused evaluators rate this highly, though cost and effect estimates vary between analyses.",
+        "confidence": "medium"
+      },
+      "score": 64,
+      "sources": [
+        { "name": "StrongMinds", "url": "https://strongminds.org/", "accessed": "2026-08-08" },
+        { "name": "Happier Lives Institute — StrongMinds analysis", "url": "https://www.happierlivesinstitute.org/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://strongminds.org/"
+    },
+    {
+      "id": "lead-exposure-donation",
+      "title": "Fund the fight against childhood lead poisoning",
+      "kind": "donation",
+      "categories": ["health", "global"],
+      "cost_usd": 25,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "relative cost-effectiveness",
+        "value": 1,
+        "explanation": "Lead exposure damages children's cognitive development at massive scale. Advocacy for lead-paint regulation (e.g. LEEP) is rated among the most cost-effective interventions by external evaluators because small budgets can change national policy.",
+        "confidence": "medium"
+      },
+      "score": 72,
+      "sources": [
+        { "name": "Lead Exposure Elimination Project", "url": "https://leadelimination.org/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://leadelimination.org/"
+    },
+    {
+      "id": "food-bank-donation",
+      "title": "Donate $10 to your local food bank",
+      "kind": "donation",
+      "categories": ["poverty", "community"],
+      "cost_usd": 10,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "meals helped provide (approx.)",
+        "value": 100,
+        "explanation": "Feeding America states each $1 helps provide about 10 meals through its network — a figure that leverages donated food and bulk purchasing, so it measures distribution leverage rather than retail value.",
+        "confidence": "medium"
+      },
+      "score": 55,
+      "sources": [
+        { "name": "Feeding America — Ways to give", "url": "https://www.feedingamerica.org/ways-to-give", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.feedingamerica.org/"
+    },
+    {
+      "id": "blood-donation",
+      "title": "Donate blood",
+      "kind": "time",
+      "categories": ["health", "community"],
+      "cost_usd": 0,
+      "time_minutes": 60,
+      "courage_level": 2,
+      "impact": {
+        "metric": "patients potentially helped per donation",
+        "value": 3,
+        "explanation": "The American Red Cross states a single donation can help save more than one life because blood is separated into red cells, plasma and platelets; someone in the U.S. needs blood roughly every 2 seconds.",
+        "confidence": "high"
+      },
+      "score": 85,
+      "sources": [
+        { "name": "American Red Cross — Importance of the blood supply", "url": "https://www.redcrossblood.org/donate-blood/how-to-donate/how-blood-donations-help.html", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.redcrossblood.org/give.html"
+    },
+    {
+      "id": "platelet-donation",
+      "title": "Donate platelets",
+      "kind": "time",
+      "categories": ["health", "community"],
+      "cost_usd": 0,
+      "time_minutes": 180,
+      "courage_level": 2,
+      "impact": {
+        "metric": "cancer and trauma patients supported",
+        "value": 1,
+        "explanation": "Platelets are critical for cancer patients in chemotherapy and shelf-stable for only about 5-7 days, so supply is perpetually short. One apheresis donation can provide a full transfusable dose.",
+        "confidence": "high"
+      },
+      "score": 72,
+      "sources": [
+        { "name": "American Red Cross — Platelet donation", "url": "https://www.redcrossblood.org/donate-blood/how-to-donate/types-of-blood-donations/platelet-donation.html", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.redcrossblood.org/donate-blood/how-to-donate/types-of-blood-donations/platelet-donation.html"
+    },
+    {
+      "id": "organ-donor-registration",
+      "title": "Register as an organ donor",
+      "kind": "time",
+      "categories": ["health"],
+      "cost_usd": 0,
+      "time_minutes": 2,
+      "courage_level": 2,
+      "impact": {
+        "metric": "lives one donor can save",
+        "value": 8,
+        "explanation": "HRSA states one organ donor can save up to 8 lives and enhance dozens more through tissue donation. Only a small fraction of deaths permit donation, so the expected value per registrant is far below 8 — but the cost is 2 minutes.",
+        "confidence": "high"
+      },
+      "score": 90,
+      "sources": [
+        { "name": "HRSA — Organ donation", "url": "https://www.hrsa.gov/optn/patients/organ-donation", "accessed": "2026-08-08" },
+        { "name": "organdonor.gov — Statistics", "url": "https://www.organdonor.gov/learn/organ-donation-statistics", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.organdonor.gov/sign-up"
+    },
+    {
+      "id": "bone-marrow-registry",
+      "title": "Join the bone marrow / stem cell registry",
+      "kind": "time",
+      "categories": ["health"],
+      "cost_usd": 0,
+      "time_minutes": 10,
+      "courage_level": 3,
+      "impact": {
+        "metric": "chance of ever donating (approx.)",
+        "value": 0.002,
+        "explanation": "Registering is a cheek swab; roughly 1 in 430 U.S. registry members ever donate. But for a blood-cancer patient without a family match, a registry match can be the only curative option.",
+        "confidence": "medium"
+      },
+      "score": 62,
+      "sources": [
+        { "name": "NMDP (Be The Match) — Likelihood of donating", "url": "https://bethematch.org/support-the-cause/donate-bone-marrow/join-the-marrow-registry/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://bethematch.org/"
+    },
+    {
+      "id": "learn-cpr",
+      "title": "Take a CPR course",
+      "kind": "time",
+      "categories": ["health", "skills"],
+      "cost_usd": 30,
+      "time_minutes": 180,
+      "courage_level": 2,
+      "impact": {
+        "metric": "survival multiplier when CPR is given promptly",
+        "value": 2,
+        "explanation": "The AHA states CPR, especially if performed immediately, can double or triple survival from out-of-hospital cardiac arrest (~350,000 U.S. cases/year); a 2024 JAHA study found 81% greater survival odds when bystander CPR starts within 2 minutes.",
+        "confidence": "high"
+      },
+      "score": 80,
+      "sources": [
+        { "name": "American Heart Association — What is CPR", "url": "https://cpr.heart.org/en/resources/what-is-cpr", "accessed": "2026-08-08" },
+        { "name": "JAHA — Witnessed arrest vs bystander CPR (2024)", "url": "https://www.ahajournals.org/doi/10.1161/JAHA.124.038427", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://cpr.heart.org/en/course-catalog-search"
+    },
+    {
+      "id": "learn-stop-the-bleed",
+      "title": "Take a Stop the Bleed course",
+      "kind": "time",
+      "categories": ["health", "skills"],
+      "cost_usd": 0,
+      "time_minutes": 90,
+      "courage_level": 2,
+      "impact": {
+        "metric": "preventable trauma deaths addressable",
+        "value": 1,
+        "explanation": "Uncontrolled bleeding is a leading cause of preventable death after trauma; a person can bleed out in under 5 minutes, before responders arrive. The 90-minute course teaches tourniquets and wound packing.",
+        "confidence": "high"
+      },
+      "score": 58,
+      "sources": [
+        { "name": "American College of Surgeons — Stop the Bleed", "url": "https://www.stopthebleed.org/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.stopthebleed.org/training/"
+    },
+    {
+      "id": "volunteer-food-bank",
+      "title": "Volunteer a shift at a food bank",
+      "kind": "time",
+      "categories": ["poverty", "community"],
+      "cost_usd": 0,
+      "time_minutes": 120,
+      "courage_level": 1,
+      "impact": {
+        "metric": "economic value of volunteer time (USD/hour)",
+        "value": 36.14,
+        "explanation": "Independent Sector values a U.S. volunteer hour at $36.14 (2026). Food bank sorting shifts are high-leverage because volunteer labor lets the food bank's dollars go to food instead of payroll.",
+        "confidence": "high"
+      },
+      "score": 55,
+      "sources": [
+        { "name": "Independent Sector — Value of volunteer time 2026", "url": "https://independentsector.org/blog/2026-value-of-volunteer-time-release/", "accessed": "2026-08-08" },
+        { "name": "Feeding America — Volunteer", "url": "https://www.feedingamerica.org/take-action/volunteer", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.feedingamerica.org/take-action/volunteer"
+    },
+    {
+      "id": "tutor-a-student",
+      "title": "Tutor a struggling student weekly",
+      "kind": "time",
+      "categories": ["education", "community"],
+      "cost_usd": 0,
+      "time_minutes": 60,
+      "courage_level": 2,
+      "impact": {
+        "metric": "standard deviations of learning gain (high-dosage tutoring)",
+        "value": 0.37,
+        "explanation": "A meta-analysis of 96 RCTs found tutoring programs raise achievement by ~0.37 standard deviations on average — one of the largest effects of any education intervention. Consistency matters more than credentials.",
+        "confidence": "high"
+      },
+      "score": 74,
+      "sources": [
+        { "name": "Nickow, Oreopoulos & Quan (NBER w27476) — The impressive effects of tutoring", "url": "https://www.nber.org/papers/w27476", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.learntobe.org/"
+    },
+    {
+      "id": "crisis-line-volunteer",
+      "title": "Train as a crisis line volunteer",
+      "kind": "time",
+      "categories": ["health", "community"],
+      "cost_usd": 0,
+      "time_minutes": 240,
+      "courage_level": 3,
+      "impact": {
+        "metric": "people in crisis supported per weekly shift",
+        "value": 5,
+        "explanation": "Crisis lines like Crisis Text Line and 988 depend on trained volunteers; evaluations show most texters report their conversation helped. Training is substantial (~30 hours) but the ongoing weekly commitment reaches many people in acute distress.",
+        "confidence": "medium"
+      },
+      "score": 60,
+      "sources": [
+        { "name": "Crisis Text Line — Volunteer", "url": "https://www.crisistextline.org/become-a-volunteer/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.crisistextline.org/become-a-volunteer/"
+    },
+    {
+      "id": "mentor-young-person",
+      "title": "Mentor a young person",
+      "kind": "time",
+      "categories": ["education", "community"],
+      "cost_usd": 0,
+      "time_minutes": 60,
+      "courage_level": 2,
+      "impact": {
+        "metric": "relative improvement in youth outcomes",
+        "value": 1,
+        "explanation": "RCTs of Big Brothers Big Sisters found mentored youth were significantly less likely to start using drugs and skipped fewer school days. Effects are real but modest; long-term consistent matches matter most.",
+        "confidence": "medium"
+      },
+      "score": 62,
+      "sources": [
+        { "name": "Big Brothers Big Sisters — Research", "url": "https://www.bbbs.org/research/", "accessed": "2026-08-08" },
+        { "name": "MENTOR — The mentoring effect", "url": "https://www.mentoring.org/resource/the-mentoring-effect/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.bbbs.org/get-involved/"
+    },
+    {
+      "id": "pro-bono-skills",
+      "title": "Donate your professional skills pro bono",
+      "kind": "time",
+      "categories": ["community", "skills"],
+      "cost_usd": 0,
+      "time_minutes": 120,
+      "courage_level": 1,
+      "impact": {
+        "metric": "value of skilled volunteer time (USD/hour, lower bound)",
+        "value": 36.14,
+        "explanation": "The general volunteer hour is valued at $36.14 (2026); specialized skills (design, legal, accounting, code) are worth several times that to a nonprofit that would otherwise pay market rates or go without.",
+        "confidence": "medium"
+      },
+      "score": 58,
+      "sources": [
+        { "name": "Independent Sector — Value of volunteer time 2026", "url": "https://independentsector.org/blog/2026-value-of-volunteer-time-release/", "accessed": "2026-08-08" },
+        { "name": "Catchafire — Skills-based volunteering", "url": "https://www.catchafire.org/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.catchafire.org/"
+    },
+    {
+      "id": "voter-registration-drive",
+      "title": "Help at a voter registration drive",
+      "kind": "time",
+      "categories": ["civic", "community"],
+      "cost_usd": 0,
+      "time_minutes": 180,
+      "courage_level": 2,
+      "impact": {
+        "metric": "new voters registered per shift (typical)",
+        "value": 10,
+        "explanation": "Nonpartisan registration drives measurably increase turnout among those registered. The civic value of marginal registrations is hard to quantify, so we grade this low-confidence despite clear mechanism.",
+        "confidence": "low"
+      },
+      "score": 45,
+      "sources": [
+        { "name": "League of Women Voters — Voter registration", "url": "https://www.lwv.org/voting-rights/voter-registration", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.lwv.org/"
+    },
+    {
+      "id": "read-to-children",
+      "title": "Volunteer to read with children at a library or school",
+      "kind": "time",
+      "categories": ["education", "community"],
+      "cost_usd": 0,
+      "time_minutes": 60,
+      "courage_level": 1,
+      "impact": {
+        "metric": "early-literacy exposure sessions",
+        "value": 1,
+        "explanation": "Shared reading builds vocabulary and print familiarity; meta-analyses find consistent positive effects of shared-reading interventions on early language outcomes, with the largest benefits for children with fewer books at home.",
+        "confidence": "medium"
+      },
+      "score": 52,
+      "sources": [
+        { "name": "Reading Is Fundamental — Literacy resources", "url": "https://www.rif.org/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.rif.org/"
+    },
+    {
+      "id": "ask-are-you-ok",
+      "title": "Ask someone directly if they're thinking about suicide",
+      "kind": "courage",
+      "categories": ["health", "personal"],
+      "cost_usd": 0,
+      "time_minutes": 15,
+      "courage_level": 4,
+      "impact": {
+        "metric": "risk of harm from asking",
+        "value": 0,
+        "explanation": "A meta-analysis (Dazzi et al. 2014, Psychological Medicine) found asking about suicide does NOT increase suicidal ideation — and may reduce it. Asking directly and connecting someone to help (call/text 988 in the U.S.) is an evidence-backed act of courage.",
+        "confidence": "high"
+      },
+      "score": 88,
+      "sources": [
+        { "name": "Dazzi et al. 2014 — Does asking about suicide induce suicidal ideation? (Psychological Medicine)", "url": "https://www.cambridge.org/core/journals/psychological-medicine/article/does-asking-about-suicide-and-related-behaviours-induce-suicidal-ideation-what-is-the-evidence/FCAEE9E5BC840D76CF10AEBECD921AC9", "accessed": "2026-08-08" },
+        { "name": "988 Suicide & Crisis Lifeline", "url": "https://988lifeline.org/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://988lifeline.org/how-to-talk-to-someone/"
+    },
+    {
+      "id": "bystander-intervention-harassment",
+      "title": "Intervene when you witness harassment (the 5 Ds)",
+      "kind": "courage",
+      "categories": ["community", "safety"],
+      "cost_usd": 0,
+      "time_minutes": 5,
+      "courage_level": 4,
+      "impact": {
+        "metric": "share of situations where intervention helps",
+        "value": 0.57,
+        "explanation": "In naturalistic playground observations, 57% of peer interventions stopped bullying episodes. Trainings like Right To Be's '5 Ds' (Distract, Delegate, Document, Delay, Direct) give bystanders safe options short of confrontation.",
+        "confidence": "medium"
+      },
+      "score": 78,
+      "sources": [
+        { "name": "Hawkins, Pepler & Craig 2001 — Naturalistic observations of peer interventions (Social Development)", "url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-9507.00178", "accessed": "2026-08-08" },
+        { "name": "Right To Be — The 5 Ds of bystander intervention", "url": "https://righttobe.org/guides/bystander-intervention-training/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://righttobe.org/guides/bystander-intervention-training/"
+    },
+    {
+      "id": "stop-drunk-driving",
+      "title": "Take the keys from someone about to drive impaired",
+      "kind": "courage",
+      "categories": ["safety", "community"],
+      "cost_usd": 0,
+      "time_minutes": 15,
+      "courage_level": 4,
+      "impact": {
+        "metric": "share of U.S. traffic deaths involving alcohol",
+        "value": 0.3,
+        "explanation": "Roughly a third of U.S. traffic fatalities (~13,000+ people/year) involve an alcohol-impaired driver (NHTSA). An awkward conversation and a rideshare fare is one of the cheapest life-risk reductions an ordinary person can buy.",
+        "confidence": "high"
+      },
+      "score": 80,
+      "sources": [
+        { "name": "NHTSA — Drunk driving", "url": "https://www.nhtsa.gov/risky-driving/drunk-driving", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.nhtsa.gov/risky-driving/drunk-driving"
+    },
+    {
+      "id": "speak-up-at-work",
+      "title": "Speak up about a mistake or safety risk at work",
+      "kind": "courage",
+      "categories": ["safety", "work"],
+      "cost_usd": 0,
+      "time_minutes": 15,
+      "courage_level": 4,
+      "impact": {
+        "metric": "relative error reduction from speaking-up cultures",
+        "value": 1,
+        "explanation": "Patient-safety research consistently links psychological safety and speaking-up behavior with fewer adverse events; surgical checklist and speak-up programs show measurable harm reductions. Effect sizes vary by setting, hence medium confidence.",
+        "confidence": "medium"
+      },
+      "score": 64,
+      "sources": [
+        { "name": "AHRQ PSNet — Speaking up for patient safety", "url": "https://psnet.ahrq.gov/perspective/speaking-patient-safety", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://psnet.ahrq.gov/perspective/speaking-patient-safety"
+    },
+    {
+      "id": "report-fraud",
+      "title": "Report fraud or wrongdoing you have evidence of",
+      "kind": "courage",
+      "categories": ["civic", "work"],
+      "cost_usd": 0,
+      "time_minutes": 120,
+      "courage_level": 5,
+      "impact": {
+        "metric": "dollars recovered by whistleblower programs (cumulative, USD billions)",
+        "value": 6,
+        "explanation": "The SEC's whistleblower program alone has led to billions of dollars in sanctions and investor recoveries since 2011. Whistleblowing carries real personal risk — the highest courage rating on this site — which is exactly why it's on the list.",
+        "confidence": "medium"
+      },
+      "score": 60,
+      "sources": [
+        { "name": "SEC — Office of the Whistleblower", "url": "https://www.sec.gov/whistleblower", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.sec.gov/whistleblower"
+    },
+    {
+      "id": "check-on-isolated-neighbor",
+      "title": "Regularly check on an isolated neighbor or relative",
+      "kind": "courage",
+      "categories": ["community", "personal", "health"],
+      "cost_usd": 0,
+      "time_minutes": 30,
+      "courage_level": 2,
+      "impact": {
+        "metric": "mortality risk of chronic loneliness (comparison)",
+        "value": 15,
+        "explanation": "Holt-Lunstad's meta-analysis of 148 studies (~309,000 people) found lacking social connection carries a mortality risk comparable to smoking up to 15 cigarettes a day. Regular human contact for an isolated person targets a genuinely large health risk.",
+        "confidence": "high"
+      },
+      "score": 76,
+      "sources": [
+        { "name": "Holt-Lunstad et al. 2010 — Social relationships and mortality risk (PLOS Medicine)", "url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000316", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.epa.gov/aging/older-adults-and-social-isolation"
+    },
+    {
+      "id": "defend-bullied-student",
+      "title": "Stand up for someone being bullied",
+      "kind": "courage",
+      "categories": ["community", "safety"],
+      "cost_usd": 0,
+      "time_minutes": 5,
+      "courage_level": 4,
+      "impact": {
+        "metric": "share of peer interventions that stop bullying",
+        "value": 0.57,
+        "explanation": "In observed school bullying episodes, peers were present 88% of the time but intervened in only 19% — yet when they did intervene, 57% of interventions stopped the bullying. The gap between presence and action is the opportunity.",
+        "confidence": "medium"
+      },
+      "score": 74,
+      "sources": [
+        { "name": "Hawkins, Pepler & Craig 2001 — Naturalistic observations of peer interventions (Social Development)", "url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-9507.00178", "accessed": "2026-08-08" },
+        { "name": "StopBullying.gov — Bystanders", "url": "https://www.stopbullying.gov/prevention/bystanders-to-bullying", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.stopbullying.gov/prevention/bystanders-to-bullying"
+    },
+    {
+      "id": "mental-health-first-aid",
+      "title": "Take a Mental Health First Aid course",
+      "kind": "courage",
+      "categories": ["health", "skills"],
+      "cost_usd": 25,
+      "time_minutes": 480,
+      "courage_level": 3,
+      "impact": {
+        "metric": "improvement in helping behavior (meta-analytic)",
+        "value": 1,
+        "explanation": "Meta-analyses find MHFA training improves mental-health literacy, reduces stigma, and increases helping behaviors toward people in distress. Evidence for downstream outcomes in those helped is thinner, hence medium confidence.",
+        "confidence": "medium"
+      },
+      "score": 56,
+      "sources": [
+        { "name": "Mental Health First Aid (National Council)", "url": "https://www.mentalhealthfirstaid.org/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.mentalhealthfirstaid.org/take-a-course/"
+    },
+    {
+      "id": "sincere-apology",
+      "title": "Apologize sincerely and repair a relationship you damaged",
+      "kind": "courage",
+      "categories": ["personal"],
+      "cost_usd": 0,
+      "time_minutes": 30,
+      "courage_level": 3,
+      "impact": {
+        "metric": "effect of apology on forgiveness (qualitative)",
+        "value": 1,
+        "explanation": "Experimental research finds apologies that take responsibility and offer repair substantially increase forgiveness and relationship restoration versus no apology or partial apologies. Effects on long-run wellbeing are less quantified.",
+        "confidence": "low"
+      },
+      "score": 48,
+      "sources": [
+        { "name": "Greater Good Science Center — The science of apologies", "url": "https://greatergood.berkeley.edu/article/item/how_to_make_an_apology_work", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://greatergood.berkeley.edu/article/item/how_to_make_an_apology_work"
+    },
+    {
+      "id": "end-of-life-conversation",
+      "title": "Have the end-of-life wishes conversation with your family",
+      "kind": "courage",
+      "categories": ["health", "personal"],
+      "cost_usd": 0,
+      "time_minutes": 60,
+      "courage_level": 4,
+      "impact": {
+        "metric": "reduction in family distress and unwanted care",
+        "value": 1,
+        "explanation": "Advance care planning trials show fewer unwanted aggressive interventions and less anxiety/depression in surviving relatives when wishes were discussed in advance. One brave dinner conversation spares a family the worst version of its hardest week.",
+        "confidence": "medium"
+      },
+      "score": 60,
+      "sources": [
+        { "name": "The Conversation Project", "url": "https://theconversationproject.org/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://theconversationproject.org/get-started/"
+    },
+    {
+      "id": "beef-to-beans-swap",
+      "title": "Swap one beef meal per week for plants",
+      "kind": "habit",
+      "categories": ["environment"],
+      "cost_usd": 0,
+      "time_minutes": 0,
+      "courage_level": 1,
+      "impact": {
+        "metric": "kg CO2e avoided per year (approx.)",
+        "value": 700,
+        "explanation": "Beef emits ~60 kg CO2e per kg (Poore & Nemecek 2018 via Our World in Data) versus ~1-2 kg for beans. Swapping ~250g of beef weekly avoids roughly 0.7 tonnes CO2e per year — one of the largest single-food levers.",
+        "confidence": "high"
+      },
+      "score": 68,
+      "sources": [
+        { "name": "Our World in Data — GHG per kg of food product (Poore & Nemecek)", "url": "https://ourworldindata.org/grapher/ghg-per-kg-poore", "accessed": "2026-08-08" },
+        { "name": "Our World in Data — Environmental impacts of food", "url": "https://ourworldindata.org/environmental-impacts-of-food", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://ourworldindata.org/environmental-impacts-of-food"
+    },
+    {
+      "id": "cold-water-laundry",
+      "title": "Wash laundry in cold water",
+      "kind": "habit",
+      "categories": ["environment"],
+      "cost_usd": 0,
+      "time_minutes": 0,
+      "courage_level": 1,
+      "impact": {
+        "metric": "share of washer energy used for heating water",
+        "value": 0.9,
+        "explanation": "About 90% of a washing machine's energy goes to heating water (ENERGY STAR). Cold washes cut that almost entirely, clean modern detergents fine, and save money — a rare zero-effort habit with a real number behind it.",
+        "confidence": "high"
+      },
+      "score": 50,
+      "sources": [
+        { "name": "ENERGY STAR — Clothes washer tips", "url": "https://www.energystar.gov/products/laundry_best_practices", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.energystar.gov/products/laundry_best_practices"
+    },
+    {
+      "id": "recurring-micro-donation",
+      "title": "Set up a small recurring donation to an effective charity",
+      "kind": "habit",
+      "categories": ["poverty", "health", "global"],
+      "cost_usd": 5,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "annual giving generated ($5/month)",
+        "value": 60,
+        "explanation": "Automation beats intention: recurring donors give substantially more over time than one-off donors with identical intentions. $5/month to a GiveWell top charity is ~$60/year — about 1-2% of a statistical life saved, every year, on autopilot.",
+        "confidence": "high"
+      },
+      "score": 82,
+      "sources": [
+        { "name": "GiveWell — Donate", "url": "https://www.givewell.org/donate", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.givewell.org/donate"
+    },
+    {
+      "id": "trial-giving-pledge",
+      "title": "Try pledging 1% of income to effective charities",
+      "kind": "habit",
+      "categories": ["poverty", "health", "global"],
+      "cost_usd": 0,
+      "time_minutes": 10,
+      "courage_level": 2,
+      "impact": {
+        "metric": "annual giving at 1% of median U.S. income (approx. USD)",
+        "value": 600,
+        "explanation": "Giving What We Can's Trial Pledge (1%+ of income) turns generosity into a standing commitment. At a $60k income that's $600/year — enough to fully fund vitamin A supplementation for hundreds of children annually.",
+        "confidence": "high"
+      },
+      "score": 84,
+      "sources": [
+        { "name": "Giving What We Can — Trial Pledge", "url": "https://www.givingwhatwecan.org/pledge", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.givingwhatwecan.org/pledge"
+    },
+    {
+      "id": "reduce-food-waste",
+      "title": "Cut your household food waste",
+      "kind": "habit",
+      "categories": ["environment", "poverty"],
+      "cost_usd": 0,
+      "time_minutes": 15,
+      "courage_level": 1,
+      "impact": {
+        "metric": "share of global GHG emissions from food loss and waste",
+        "value": 0.08,
+        "explanation": "UNEP estimates food loss and waste accounts for roughly 8-10% of global greenhouse gas emissions; U.S. households also lose real money to it. Meal planning and freezing are the highest-leverage fixes.",
+        "confidence": "high"
+      },
+      "score": 58,
+      "sources": [
+        { "name": "UNEP — Food Waste Index Report", "url": "https://www.unep.org/resources/publication/food-waste-index-report-2024", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.epa.gov/recycle/preventing-wasted-food-home"
+    },
+    {
+      "id": "repair-not-replace",
+      "title": "Repair things instead of replacing them",
+      "kind": "habit",
+      "categories": ["environment", "community"],
+      "cost_usd": 0,
+      "time_minutes": 60,
+      "courage_level": 1,
+      "impact": {
+        "metric": "e-waste as fastest-growing waste stream",
+        "value": 1,
+        "explanation": "Electronic waste is the world's fastest-growing waste stream (UN Global E-waste Monitor), and most of a device's emissions are embodied in manufacturing. Repair cafés and iFixit guides make repair genuinely accessible.",
+        "confidence": "medium"
+      },
+      "score": 46,
+      "sources": [
+        { "name": "UN Global E-waste Monitor", "url": "https://ewastemonitor.info/", "accessed": "2026-08-08" },
+        { "name": "iFixit — Repair guides", "url": "https://www.ifixit.com/", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.ifixit.com/"
+    },
+    {
+      "id": "active-transport-short-trips",
+      "title": "Walk or bike trips under 2 miles",
+      "kind": "habit",
+      "categories": ["environment", "health"],
+      "cost_usd": 0,
+      "time_minutes": 20,
+      "courage_level": 1,
+      "impact": {
+        "metric": "share of U.S. car trips under ~3 miles",
+        "value": 0.5,
+        "explanation": "Roughly half of U.S. car trips are under three miles (U.S. DOT travel surveys) — the distance range where walking or cycling is most practical. The swap pays a double dividend: avoided emissions plus the well-documented health benefits of routine activity.",
+        "confidence": "medium"
+      },
+      "score": 54,
+      "sources": [
+        { "name": "U.S. DOT Bureau of Transportation Statistics — Trip length distributions", "url": "https://www.bts.gov/statistical-products/surveys/national-household-travel-survey-daily-travel-quick-facts", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://www.bts.gov/statistical-products/surveys/national-household-travel-survey-daily-travel-quick-facts"
+    },
+    {
+      "id": "weekly-appreciation-message",
+      "title": "Send one genuine appreciation message a week",
+      "kind": "habit",
+      "categories": ["personal", "community"],
+      "cost_usd": 0,
+      "time_minutes": 5,
+      "courage_level": 1,
+      "impact": {
+        "metric": "wellbeing effect of gratitude expression (qualitative)",
+        "value": 1,
+        "explanation": "Studies of gratitude letters find senders underestimate how much recipients appreciate them, and expression modestly boosts both parties' mood. The evidence base is mixed on durability, so we grade this low — it stays on the list because the cost is nearly zero.",
+        "confidence": "low"
+      },
+      "score": 42,
+      "sources": [
+        { "name": "Kumar & Epley 2018 — Undervaluing gratitude (Psychological Science)", "url": "https://journals.sagepub.com/doi/10.1177/0956797618772506", "accessed": "2026-08-08" }
+      ],
+      "act_now_url": "https://greatergood.berkeley.edu/article/item/how_gratitude_changes_you_and_your_brain"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 # How Do Good? — v2 Redesign Plan: Data-Driven Good
 
-Drafted 2026-08-08. Status: **approved direction, not yet implemented.**
+Drafted 2026-08-08. Status: **in progress — Phase A (scaffold) and Phase B
+(dataset v1, 41 actions + docs/METHODOLOGY.md) complete.**
 
 ## 1. Vision
 
@@ -84,7 +85,8 @@ weak we SAY so — the honesty is the brand.
 
 GitHub Pages is static, so data refresh happens at **build time**:
 
-- `data/actions.json` — curated, versioned in git (the source of truth).
+- `v2/src/data/actions.json` — curated, versioned in git (the source of
+  truth), validated by `v2/scripts/validate-actions.mjs` on every build.
 - `scripts/fetch-data.mjs` — Node script pulling refreshable series
   (e.g. Our World in Data CSV endpoints for context charts like global malaria
   deaths over time) into `data/generated/`.
