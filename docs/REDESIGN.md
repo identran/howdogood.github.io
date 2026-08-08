@@ -1,7 +1,9 @@
 # How Do Good? — v2 Redesign Plan: Data-Driven Good
 
-Drafted 2026-08-08. Status: **in progress — Phase A (scaffold) and Phase B
-(dataset v1, 41 actions + docs/METHODOLOGY.md) complete.**
+Drafted 2026-08-08. Status: **Phases A-E complete — v2 is LIVE on
+www.howdogood.com** (deployed via .github/workflows/deploy-v2.yml; GitHub
+Pages source is now "GitHub Actions", no longer branch-root). Remaining:
+Phase F (data refresh automation) and the "Surprise Me" generator port.
 
 ## 1. Vision
 
