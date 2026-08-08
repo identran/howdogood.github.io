@@ -9,8 +9,10 @@ purpose: One indexable page per action — the claim, the math, the
 */
 
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
-import { Badge } from "@/components/ui/badge";
+import { useLayoutEffect, useRef, useState } from "react";
+import { animate } from "animejs";
+import { Chip, Kicker, Reveal } from "@/components/editorial";
+import { ParticleAction } from "@/components/kokonutui/particle-button";
 import { actions, type Action } from "@/data/actions";
 import { KIND_COLORS } from "@/components/impact-explorer";
 
@@ -27,11 +29,17 @@ const KIND_TITLES: Record<string, string> = {
 
 const COURAGE_WORDS = ["", "easy", "mild", "real effort", "hard", "brave"];
 
+const CONFIDENCE_TEXT: Record<string, string> = {
+  high: "text-[color:var(--chart-1)]",
+  medium: "text-[color:var(--chart-4)]",
+  low: "text-muted-foreground",
+};
+
 function formatTime(minutes: number): string {
   if (minutes === 0) return "no extra time";
   if (minutes < 60) return `${minutes} minutes`;
   const h = minutes / 60;
-  return `${Number.isInteger(h) ? h : h.toFixed(1)} hours`;
+  return `${Number.isInteger(h) ? h : h.toFixed(1)} ${h === 1 ? "hour" : "hours"}`;
 }
 
 function relatedActions(action: Action): Action[] {
@@ -39,6 +47,40 @@ function relatedActions(action: Action): Action[] {
     .filter((a) => a.kind === action.kind && a.id !== action.id)
     .sort((a, b) => b.score - a.score)
     .slice(0, 3);
+}
+
+/* ┌──────────────────────────────────────┐
+    SCORE (counts up like a ledger total)
+└──────────────────────────────────────┘ */
+
+function Score({ value }: { value: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = ref.current;
+    if (!el) return;
+    const counter = { v: 0 };
+    const anim = animate(counter, {
+      v: value,
+      duration: 1100,
+      delay: 200,
+      ease: "outExpo",
+      onUpdate: () => {
+        el.textContent = String(Math.round(counter.v));
+      },
+    });
+    return () => {
+      anim.revert();
+    };
+  }, [value]);
+
+  return (
+    <span className="font-mono text-4xl font-semibold text-foreground">
+      <span ref={ref}>{value}</span>
+      <span className="text-base font-normal text-muted-foreground">/100</span>
+    </span>
+  );
 }
 
 /* ┌──────────────────────────────────────┐
@@ -71,7 +113,7 @@ function ShareButton({ action }: { action: Action }) {
   return (
     <button
       onClick={share}
-      className="rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-accent hover:text-accent"
+      className="rounded-md border border-border px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
     >
       {copied ? "✓ Link copied" : "Share"}
     </button>
@@ -88,8 +130,8 @@ export function ActionDetailPage() {
 
   if (!action) {
     return (
-      <div className="mx-auto max-w-2xl px-6 pt-20 text-center">
-        <h1 className="text-2xl font-semibold text-foreground">
+      <div className="mx-auto max-w-2xl px-6 pt-20">
+        <h1 className="font-display text-3xl font-semibold text-foreground">
           Action not found
         </h1>
         <p className="mt-3 text-muted-foreground">
@@ -97,7 +139,7 @@ export function ActionDetailPage() {
         </p>
         <Link
           to="/"
-          className="mt-6 inline-block rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+          className="mt-6 inline-block rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-foreground"
         >
           Back to the explorer
         </Link>
@@ -108,127 +150,133 @@ export function ActionDetailPage() {
   const related = relatedActions(action);
 
   return (
-    <article className="mx-auto max-w-2xl px-6 pt-10">
-      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-        <span
-          className="inline-block size-2.5 rounded-full"
-          style={{ backgroundColor: KIND_COLORS[action.kind] }}
-        />
-        {KIND_TITLES[action.kind]}
-      </div>
-
-      <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground">
-        {action.title}
-      </h1>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        <Badge variant="outline" className="border-border text-muted-foreground">
-          {action.cost_usd > 0 ? `costs $${action.cost_usd}` : "costs nothing"}
-        </Badge>
-        <Badge variant="outline" className="border-border text-muted-foreground">
-          {formatTime(action.time_minutes)}
-        </Badge>
-        <Badge variant="outline" className="border-border text-muted-foreground">
-          courage: {COURAGE_WORDS[action.courage_level]}
-        </Badge>
-      </div>
-
-      <section className="mt-8 rounded-lg border border-border bg-card p-6">
-        <div className="flex items-baseline justify-between gap-4">
-          <h2 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
-            The impact
-          </h2>
-          <span className="text-sm text-muted-foreground">
-            score{" "}
-            <span className="text-xl font-bold text-primary">{action.score}</span>
-            /100
+    <article className="mx-auto max-w-6xl px-6 pt-12">
+      <div className="max-w-2xl">
+        <div className="flex items-center gap-2">
+          <span
+            className="inline-block size-2.5 rounded-full"
+            style={{ backgroundColor: KIND_COLORS[action.kind] }}
+          />
+          <span
+            className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.14em]"
+            style={{ color: KIND_COLORS[action.kind] }}
+          >
+            {KIND_TITLES[action.kind]}
           </span>
         </div>
-        <p className="mt-3 text-lg leading-relaxed text-foreground">
-          {action.impact.explanation}
-        </p>
-        <p className="mt-4 text-sm text-muted-foreground">
-          Measured as:{" "}
-          <span className="text-foreground">
-            {action.impact.metric} ≈ {action.impact.value}
-          </span>{" "}
-          ·{" "}
-          <span
-            className={
-              action.impact.confidence === "high"
-                ? "text-primary"
-                : action.impact.confidence === "medium"
-                  ? "text-[color:var(--chart-3)]"
-                  : "text-muted-foreground"
-            }
-          >
-            {action.impact.confidence} confidence
-          </span>
-        </p>
-      </section>
 
-      <div className="mt-6 flex items-center gap-3">
-        <a
-          href={action.act_now_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-md bg-primary px-5 py-2.5 font-medium text-primary-foreground transition-colors hover:opacity-90"
+        <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-5xl">
+          {action.title}
+        </h1>
+
+        <div className="mt-5 flex flex-wrap gap-1.5">
+          <Chip>
+            {action.cost_usd > 0 ? `costs $${action.cost_usd}` : "costs nothing"}
+          </Chip>
+          <Chip>{formatTime(action.time_minutes)}</Chip>
+          <Chip>courage: {COURAGE_WORDS[action.courage_level]}</Chip>
+        </div>
+
+        <section
+          className="mt-8 rounded-md border border-border bg-card p-6 shadow-[0_1px_2px_rgba(46,38,28,0.06)]"
+          style={{ borderLeftWidth: 3, borderLeftColor: KIND_COLORS[action.kind] }}
         >
-          Do it now →
-        </a>
-        <ShareButton action={action} />
-      </div>
-
-      <section className="mt-10">
-        <h2 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
-          Sources
-        </h2>
-        <ul className="mt-3 space-y-2">
-          {action.sources.map((s) => (
-            <li key={s.url} className="text-sm">
-              <a
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent underline-offset-2 hover:underline"
-              >
-                {s.name}
-              </a>
-              <span className="text-muted-foreground"> · checked {s.accessed}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4 text-xs text-muted-foreground">
-          The 0-100 score is our editorial synthesis of impact per resource —
-          it never stands alone. How we grade evidence:{" "}
-          <Link to="/data" className="underline underline-offset-2 hover:text-accent">
-            The Data
-          </Link>
-          .
-        </p>
-      </section>
-
-      {related.length > 0 && (
-        <section className="mt-10">
-          <h2 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
-            More like this
-          </h2>
-          <div className="mt-3 grid gap-3 sm:grid-cols-3">
-            {related.map((r) => (
-              <Link
-                key={r.id}
-                to={`/action/${r.id}`}
-                className="rounded-lg border border-border bg-card p-4 text-sm font-medium text-foreground transition-colors hover:border-primary"
-              >
-                {r.title}
-                <span className="mt-1 block text-xs font-normal text-muted-foreground">
-                  score {r.score}
-                </span>
-              </Link>
-            ))}
+          <div className="flex items-start justify-between gap-4">
+            <h2 className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+              The impact
+            </h2>
+            <Score value={action.score} />
           </div>
+          <p className="mt-2 font-display text-xl leading-relaxed text-foreground">
+            {action.impact.explanation}
+          </p>
+          <p className="mt-4 font-mono text-xs leading-relaxed text-muted-foreground">
+            measured as:{" "}
+            <span className="text-foreground">
+              {action.impact.metric} ≈ {action.impact.value}
+            </span>{" "}
+            ·{" "}
+            <span className={CONFIDENCE_TEXT[action.impact.confidence]}>
+              {action.impact.confidence} confidence
+            </span>
+          </p>
         </section>
-      )}
+
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <ParticleAction
+            href={action.act_now_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 text-base"
+          >
+            Do it now →
+          </ParticleAction>
+          <ShareButton action={action} />
+        </div>
+
+        <Reveal>
+          <section className="mt-12">
+            <Kicker no="※">Sources</Kicker>
+            <ol className="mt-4 space-y-2.5">
+              {action.sources.map((s, i) => (
+                <li key={s.url} className="flex gap-3 text-sm">
+                  <span className="shrink-0 font-mono text-xs text-muted-foreground">
+                    [{i + 1}]
+                  </span>
+                  <span>
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent underline-offset-2 hover:underline"
+                    >
+                      {s.name}
+                    </a>{" "}
+                    <span className="font-mono text-xs text-muted-foreground">
+                      · checked {s.accessed}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-4 font-mono text-[0.6875rem] leading-relaxed text-muted-foreground">
+              The 0-100 score is our editorial synthesis of impact per
+              resource — it never stands alone. How we grade evidence:{" "}
+              <Link
+                to="/data"
+                className="underline underline-offset-2 hover:text-accent"
+              >
+                The Data
+              </Link>
+              .
+            </p>
+          </section>
+        </Reveal>
+
+        {related.length > 0 && (
+          <Reveal>
+            <section className="mt-12">
+              <Kicker no="＋">More like this</Kicker>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {related.map((r) => (
+                  <Link
+                    key={r.id}
+                    to={`/action/${r.id}`}
+                    className="group rounded-md border border-border bg-card p-4 shadow-[0_1px_2px_rgba(46,38,28,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/25 hover:shadow-[0_6px_18px_rgba(46,38,28,0.10)]"
+                  >
+                    <span className="font-display text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
+                      {r.title}
+                    </span>
+                    <span className="mt-1 block font-mono text-xs text-muted-foreground">
+                      score {r.score}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+        )}
+      </div>
     </article>
   );
 }

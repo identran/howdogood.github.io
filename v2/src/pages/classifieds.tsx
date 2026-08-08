@@ -4,11 +4,12 @@ date: August 8, 2026
 programmer: James Tran
 title: Classifieds Page
 purpose: Curated classifieds (ported from v1) with the Get Listed CTA
-         card first — the revenue surface of the site
+         card first — the revenue surface of the site, styled like the
+         classified column of a broadsheet
 */
 
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
+import { Chip, Kicker, Reveal } from "@/components/editorial";
 import { classifieds, type Classified } from "@/data/classifieds";
 
 /* ┌──────────────────────────────────────┐
@@ -17,18 +18,20 @@ import { classifieds, type Classified } from "@/data/classifieds";
 
 function CtaCard() {
   return (
-    <div className="flex flex-col rounded-lg border border-dashed border-primary bg-card p-5">
-      <h3 className="font-semibold text-primary">Your Listing Here</h3>
-      <Badge className="mt-2 w-fit bg-primary text-primary-foreground">
-        Get Listed
-      </Badge>
+    <div className="flex h-full flex-col rounded-md border-2 border-dashed border-accent bg-card p-5">
+      <span className="font-mono text-[0.625rem] font-medium uppercase tracking-[0.14em] text-accent">
+        This space for good
+      </span>
+      <h3 className="mt-1 font-display text-lg font-semibold text-foreground">
+        Your Listing Here
+      </h3>
       <p className="mt-3 flex-grow text-sm leading-relaxed text-muted-foreground">
         Community projects and nonprofits list free. Ethical businesses: $10
         for 30 days, one-time — no subscription.
       </p>
       <Link
         to="/get-listed"
-        className="mt-4 rounded-md bg-primary px-3 py-2 text-center text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
+        className="mt-4 rounded-md bg-primary px-3 py-2 text-center text-sm font-medium text-primary-foreground transition-colors hover:bg-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       >
         Get listed →
       </Link>
@@ -38,25 +41,22 @@ function CtaCard() {
 
 function ListingCard({ item }: { item: Classified }) {
   return (
-    <div className="flex flex-col rounded-lg border border-border bg-card p-5 transition-colors hover:border-primary">
-      <h3 className="font-semibold text-primary">{item.title}</h3>
-      <Badge className="mt-2 w-fit bg-primary/90 text-primary-foreground">
+    <div className="flex h-full flex-col rounded-md border border-border bg-card p-5 shadow-[0_1px_2px_rgba(46,38,28,0.06)] transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-foreground/25 hover:shadow-[0_6px_18px_rgba(46,38,28,0.10)]">
+      <span className="font-mono text-[0.625rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
         {item.category}
-      </Badge>
+      </span>
+      <h3 className="mt-1 font-display text-lg font-semibold text-foreground">
+        {item.title}
+      </h3>
       <p className="mt-3 flex-grow text-sm leading-relaxed text-muted-foreground">
         {item.description}
       </p>
-      <p className="mt-3 text-xs text-muted-foreground">
-        Contact: {item.contact}
+      <p className="mt-3 font-mono text-xs text-muted-foreground">
+        contact: {item.contact}
       </p>
       <div className="mt-2 flex flex-wrap gap-1.5">
         {item.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded bg-background px-2 py-0.5 text-xs text-muted-foreground"
-          >
-            {tag}
-          </span>
+          <Chip key={tag}>{tag}</Chip>
         ))}
       </div>
     </div>
@@ -69,21 +69,26 @@ function ListingCard({ item }: { item: Classified }) {
 
 export function ClassifiedsPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 pt-10">
-      <h1 className="text-center text-3xl font-bold tracking-tight text-foreground">
-        Curated Classifieds
-      </h1>
-      <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
-        A curated list of services, products and community projects that align
-        with our ethical values. Every listing is manually reviewed.
-      </p>
-
-      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <CtaCard />
-        {classifieds.map((item) => (
-          <ListingCard key={item.id} item={item} />
-        ))}
+    <div className="mx-auto max-w-6xl px-6 pt-12">
+      <Kicker no="№ 05">The Classifieds</Kicker>
+      <div className="mt-5 max-w-2xl">
+        <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-5xl">
+          Curated Classifieds
+        </h1>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          A curated list of services, products and community projects that
+          align with our ethical values. Every listing is manually reviewed.
+        </p>
       </div>
+
+      <Reveal>
+        <div className="mt-8 grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <CtaCard />
+          {classifieds.map((item) => (
+            <ListingCard key={item.id} item={item} />
+          ))}
+        </div>
+      </Reveal>
     </div>
   );
 }

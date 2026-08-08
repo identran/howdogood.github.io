@@ -1,13 +1,18 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
+@import "@fontsource-variable/fraunces/standard.css";
+@import "@fontsource-variable/fraunces/standard-italic.css";
+@import "@fontsource-variable/instrument-sans";
+@import "@fontsource-variable/jetbrains-mono";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    --font-heading: var(--font-display);
+    --font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Mono', monospace;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -189,36 +194,75 @@
 /* ┌──────────────────────────────────────┐
     HOW DO GOOD? THEME OVERRIDES
 └──────────────────────────────────────┘ */
-/* Dark-first identity carried over from v1 (Obsidian-inspired palette).
-   Overrides the shadcn preset tokens above; the site ships dark-only. */
-:root,
-.dark {
-    --background: #1e1e1e;
-    --foreground: #e0e0e0;
-    --card: #262626;
-    --card-foreground: #e0e0e0;
-    --popover: #2d2d2d;
-    --popover-foreground: #e0e0e0;
-    --primary: #7c9885;
-    --primary-foreground: #1e1e1e;
-    --secondary: #2d2d2d;
-    --secondary-foreground: #e0e0e0;
-    --muted: #2d2d2d;
-    --muted-foreground: #a0a0a0;
-    --accent: #b4a7d6;
-    --accent-foreground: #1e1e1e;
-    --destructive: #d47c7c;
-    --border: #3a3a3a;
-    --input: #3a3a3a;
-    --ring: #7c9885;
-    --chart-1: #7c9885;
-    --chart-2: #b4a7d6;
-    --chart-3: #d4a574;
-    --chart-4: #8fa798;
-    --chart-5: #d47c7c;
-    --chart-background: #1e1e1e;
-    --chart-foreground: #a0a0a0;
-    --chart-grid: #2d2d2d;
-    --chart-label: #a0a0a0;
-    --chart-crosshair: #3a3a3a;
+/* "The Ledger of Good Deeds" — warm editorial data-journal: ink on
+   warm paper, print-ink data colors, mono ledger numbers. Light-only;
+   overrides the preset tokens above. See docs/DESIGN-LANGUAGE.md. */
+:root {
+    --background: oklch(0.9761 0.0107 90);
+    --foreground: oklch(0.2453 0.0136 60);
+    --card: oklch(0.9911 0.0062 90);
+    --card-foreground: oklch(0.2453 0.0136 60);
+    --popover: oklch(0.9911 0.0062 90);
+    --popover-foreground: oklch(0.2453 0.0136 60);
+    --primary: oklch(0.2764 0.0136 55);
+    --primary-foreground: oklch(0.9852 0.0062 90);
+    --secondary: oklch(0.9436 0.0136 85);
+    --secondary-foreground: oklch(0.2764 0.0136 55);
+    --muted: oklch(0.9436 0.0136 85);
+    --muted-foreground: oklch(0.4587 0.0179 60);
+    --accent: oklch(0.5265 0.1701 35);
+    --accent-foreground: oklch(0.9852 0.0062 90);
+    --destructive: oklch(0.5215 0.1907 25);
+    --border: oklch(0.8759 0.0136 80);
+    --input: oklch(0.8759 0.0136 80);
+    --ring: oklch(0.5265 0.1701 35);
+    --radius: 0.375rem;
+    /* Strong rules — masthead double rule, section slugs */
+    --rule: oklch(0.3162 0.0136 60);
+
+    /* Print inks — kind colors & chart series (dark enough for text) */
+    --chart-1: oklch(0.5215 0.1077 155); /* donation — emerald   */
+    --chart-2: oklch(0.4995 0.158 255);  /* time — cobalt        */
+    --chart-3: oklch(0.5265 0.1701 35);  /* courage — vermilion  */
+    --chart-4: oklch(0.5541 0.1077 75);  /* habit — ochre        */
+    --chart-5: oklch(0.4995 0.1382 320); /* plum                 */
+
+    /* bklit chart plumbing */
+    --chart-background: oklch(0.9911 0.0062 90);
+    --chart-foreground: oklch(0.2453 0.0136 60);
+    --chart-foreground-muted: oklch(0.4587 0.0179 60);
+    --chart-grid: oklch(0.9068 0.0124 85);
+    --chart-brush-border: var(--chart-grid);
+    --chart-crosshair: oklch(0.5265 0.1701 35);
+    --chart-label: oklch(0.4587 0.0179 60);
+    --chart-tooltip-background: oklch(0.2453 0.0136 60 / 0.94);
+    --chart-tooltip-foreground: oklch(0.9761 0.0107 90);
+    --chart-tooltip-muted: oklch(0.8137 0.0136 85);
+    --chart-marker-background: oklch(0.9436 0.0136 85);
+    --chart-marker-border: oklch(0.8137 0.0136 80);
+    --chart-marker-foreground: oklch(0.2764 0.0136 55);
+    --chart-scale-01: oklch(0.9698 0.0107 90);
+    --chart-scale-02: oklch(0.9188 0.0155 88);
+    --chart-scale-03: oklch(0.8261 0.0243 85);
+    --chart-scale-04: oklch(0.6889 0.0388 80);
+    --chart-scale-05: oklch(0.5541 0.0537 75);
+    --chart-scale-pattern-color: oklch(0.9561 0.0107 90);
+}
+
+@layer base {
+    /* Editorial defaults: serif display headings, crisp rendering,
+       vermilion selection. Utilities may still override per-element. */
+    body {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        /* Paper grain: tiled feTurbulence noise at ~4% alpha */
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='linear' slope='0.04'/></feComponentTransfer></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+    h1, h2, h3 {
+        font-family: var(--font-display);
+    }
+    ::selection {
+        background: var(--accent);
+        color: var(--accent-foreground);
+    }
 }

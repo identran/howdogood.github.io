@@ -13,6 +13,10 @@ import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  // Dev server: honor an assigned PORT (preview harness) or fall back
+  server: {
+    port: Number(process.env.PORT) || 8299,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
