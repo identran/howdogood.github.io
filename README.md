@@ -24,8 +24,8 @@
 ### 💡 Kindness Ideas Page
 - Static, search-engine-friendly list of all acts of kindness, grouped by theme
 
-### 💼 Advertise Page
-- Pricing and ordering information for paid classified listings
+### 💼 Get Listed Page
+- Free community listings and low-cost one-time business listings
 - See [docs/MONETIZATION.md](docs/MONETIZATION.md) for the full revenue playbook
 
 ## 🎨 Design & Aesthetics

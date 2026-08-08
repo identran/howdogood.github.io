@@ -154,9 +154,9 @@ function createNavigation(parent) {
     advertiseItem.setAttribute('role', 'none');
     const advertiseLink = document.createElement('a');
     advertiseLink.href = './advertise.html';
-    advertiseLink.textContent = 'Advertise';
+    advertiseLink.textContent = 'Get Listed';
     advertiseLink.setAttribute('role', 'menuitem');
-    advertiseLink.setAttribute('aria-label', 'Advertise with us');
+    advertiseLink.setAttribute('aria-label', 'Get listed in the classifieds');
     advertiseItem.appendChild(advertiseLink);
 
     navList.appendChild(homeItem);

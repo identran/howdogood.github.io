@@ -259,7 +259,7 @@ function createNavigation(parent) {
     const advertiseItem = document.createElement('li');
     const advertiseLink = document.createElement('a');
     advertiseLink.href = './advertise.html';
-    advertiseLink.textContent = 'Advertise';
+    advertiseLink.textContent = 'Get Listed';
     advertiseItem.appendChild(advertiseLink);
 
     navList.appendChild(homeItem);
@@ -287,17 +287,17 @@ function createAdvertiseCtaCard() {
 
     const category = document.createElement('div');
     category.className = 'category';
-    category.textContent = 'Advertise';
+    category.textContent = 'Get Listed';
     card.appendChild(category);
 
     const description = document.createElement('p');
-    description.textContent = 'Run an ethical business or community project? Reach a values-driven audience with a curated listing, starting at $15/month.';
+    description.textContent = 'Community projects and nonprofits list free. Ethical businesses: $10 for 30 days, one-time — no subscription.';
     card.appendChild(description);
 
     const link = document.createElement('a');
     link.href = './advertise.html';
     link.className = 'action-button cta-button';
-    link.textContent = 'See pricing →';
+    link.textContent = 'Get listed →';
     card.appendChild(link);
 
     return card;
