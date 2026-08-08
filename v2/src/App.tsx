@@ -3,13 +3,15 @@ filename: App.tsx
 date: August 8, 2026
 programmer: James Tran
 title: How Do Good? v2 - Application Shell
-purpose: Top-level layout (nav, home placeholder with demo chart, footer)
-         for the data-driven v2 redesign — see docs/REDESIGN.md
+purpose: Top-level layout (nav, hero, impact explorer, frontier chart,
+         top-actions chart, footer) — see docs/REDESIGN.md
 */
 
 import { BarChart } from "@/components/charts/bar-chart";
 import { Bar } from "@/components/charts/bar";
 import { BarYAxis } from "@/components/charts/bar-y-axis";
+import { ImpactExplorer } from "@/components/impact-explorer";
+import { ImpactFrontier } from "@/components/impact-frontier";
 import { actions, datasetUpdated } from "@/data/actions";
 
 /* ┌──────────────────────────────────────┐
@@ -56,9 +58,9 @@ function Hero() {
   );
 }
 
-function DemoChart() {
+function TopActionsChart() {
   return (
-    <section id="explorer" className="mx-auto mt-14 max-w-3xl px-6">
+    <section id="rankings" className="mx-auto mt-16 max-w-3xl px-6">
       <div className="rounded-lg border border-border bg-card p-6">
         <h2 className="text-xl font-semibold text-primary">
           Not all good deeds are equal
@@ -90,14 +92,9 @@ function DemoChart() {
 function ComingSoon() {
   const items = [
     {
-      id: "rankings",
-      title: "Rankings",
-      text: "Most good per $10, per hour, and the courage that counts.",
-    },
-    {
       id: "data",
       title: "The Data",
-      text: "Every number sourced, every estimate graded for confidence.",
+      text: "Full methodology page: every number sourced, every estimate graded for confidence.",
     },
     {
       id: "generator",
@@ -107,7 +104,7 @@ function ComingSoon() {
   ];
 
   return (
-    <section className="mx-auto mt-10 grid max-w-3xl gap-4 px-6 md:grid-cols-3">
+    <section className="mx-auto mt-10 grid max-w-3xl gap-4 px-6 md:grid-cols-2">
       {items.map((item) => (
         <div
           key={item.id}
@@ -150,7 +147,9 @@ function App() {
       <Nav />
       <main>
         <Hero />
-        <DemoChart />
+        <ImpactExplorer />
+        <ImpactFrontier />
+        <TopActionsChart />
         <ComingSoon />
       </main>
       <Footer />
