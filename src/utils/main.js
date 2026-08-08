@@ -132,6 +132,15 @@ function createNavigation(parent) {
     homeLink.setAttribute('aria-label', 'Go to home page');
     homeItem.appendChild(homeLink);
 
+    const ideasItem = document.createElement('li');
+    ideasItem.setAttribute('role', 'none');
+    const ideasLink = document.createElement('a');
+    ideasLink.href = './kindness-ideas.html';
+    ideasLink.textContent = 'Kindness Ideas';
+    ideasLink.setAttribute('role', 'menuitem');
+    ideasLink.setAttribute('aria-label', 'Browse all kindness ideas');
+    ideasItem.appendChild(ideasLink);
+
     const classifiedsItem = document.createElement('li');
     classifiedsItem.setAttribute('role', 'none');
     const classifiedsLink = document.createElement('a');
@@ -141,8 +150,19 @@ function createNavigation(parent) {
     classifiedsLink.setAttribute('aria-label', 'Go to classifieds page');
     classifiedsItem.appendChild(classifiedsLink);
 
+    const advertiseItem = document.createElement('li');
+    advertiseItem.setAttribute('role', 'none');
+    const advertiseLink = document.createElement('a');
+    advertiseLink.href = './advertise.html';
+    advertiseLink.textContent = 'Advertise';
+    advertiseLink.setAttribute('role', 'menuitem');
+    advertiseLink.setAttribute('aria-label', 'Advertise with us');
+    advertiseItem.appendChild(advertiseLink);
+
     navList.appendChild(homeItem);
+    navList.appendChild(ideasItem);
     navList.appendChild(classifiedsItem);
+    navList.appendChild(advertiseItem);
 
     nav.appendChild(logo);
     nav.appendChild(navList);
@@ -323,7 +343,8 @@ function generateKindnessAct() {
     // Create and show loading animation
     const loadingElement = createLoadingAnimation(kindnessActElement.parentNode);
 
-    // Simulate "thinking" with a 7-second delay as specified in requirements
+    // Brief "thinking" delay — long enough to feel intentional, short
+    // enough that first-time visitors don't leave before seeing content
     setTimeout(() => {
         // Get a random kindness act
         const randomKindnessAct = getUniqueRandomElement(kindnessActs, state.previousSelections);
@@ -355,7 +376,7 @@ function generateKindnessAct() {
 
         // Reset loading state
         state.isLoading = false;
-    }, 7000);
+    }, 2500);
 }
 
 /* ┌──────────────────────────────────────┐

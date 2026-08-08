@@ -1,0 +1,166 @@
+/*
+filename: pages.css
+date: August 8, 2026
+programmer: James Tran
+title: How Do Good? - Static Pages Stylesheet
+purpose: Provides styling for static content pages (Kindness Ideas, Advertise)
+*/
+
+/* ┌──────────────────────────────────────┐
+    STATIC PAGE LAYOUT
+└──────────────────────────────────────┘ */
+
+/* Static pages scroll normally instead of centering in the viewport */
+body.static-page {
+    height: auto;
+    min-height: 100%;
+}
+
+.static-content {
+    padding: 6rem var(--spacing-medium) var(--spacing-xlarge);
+    text-align: left;
+}
+
+.static-content h1 {
+    text-align: center;
+}
+
+.static-content h2 {
+    margin-top: var(--spacing-large);
+    margin-bottom: var(--spacing-small);
+    font-size: var(--font-size-medium);
+    color: var(--accent-primary);
+}
+
+.static-content .page-description {
+    text-align: center;
+}
+
+.static-content a {
+    color: var(--accent-secondary);
+}
+
+.static-content a:hover {
+    color: var(--accent-hover);
+}
+
+/* Static pages use a normal (non-fixed) footer so it never overlaps content */
+body.static-page .footer {
+    position: relative;
+    margin-top: var(--spacing-large);
+}
+
+/* ┌──────────────────────────────────────┐
+    LISTS (IDEAS, BENEFITS, STEPS)
+└──────────────────────────────────────┘ */
+
+.ideas-list,
+.benefits-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.ideas-list li,
+.benefits-list li {
+    padding: var(--spacing-small) var(--spacing-medium);
+    margin-bottom: var(--spacing-tiny);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-medium);
+    color: var(--text-primary);
+}
+
+.steps-list {
+    padding-left: var(--spacing-medium);
+    color: var(--text-primary);
+}
+
+.steps-list li {
+    margin-bottom: var(--spacing-small);
+}
+
+.fine-print {
+    font-size: var(--font-size-tiny);
+    color: var(--text-muted);
+    margin-top: var(--spacing-medium);
+}
+
+.cta-section {
+    text-align: center;
+    margin-top: var(--spacing-large);
+}
+
+/* ┌──────────────────────────────────────┐
+    PRICING CARDS
+└──────────────────────────────────────┘ */
+
+.pricing-container {
+    align-items: stretch;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.pricing-featured {
+    border-color: var(--accent-primary);
+    box-shadow: 0 6px 16px rgba(124, 152, 133, 0.2);
+}
+
+.price {
+    font-size: var(--font-size-large);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-small);
+}
+
+.price-period {
+    font-size: var(--font-size-tiny);
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.pricing-features {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-medium);
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    padding: var(--spacing-tiny) 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--subtle);
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.cta-button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+    border-color: var(--accent-primary);
+}
+
+.cta-button:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+}
+
+/* ┌──────────────────────────────────────┐
+    RESPONSIVE STYLES
+└──────────────────────────────────────┘ */
+
+@media (max-width: 768px) {
+    .static-content {
+        padding-top: 8rem;
+    }
+}

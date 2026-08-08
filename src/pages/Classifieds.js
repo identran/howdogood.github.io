@@ -216,7 +216,11 @@ function initializeClassifiedsPage() {
     const classifiedsContainer = document.createElement('div');
     classifiedsContainer.className = 'classifieds-container';
     mainContainer.appendChild(classifiedsContainer);
-    
+
+    // Advertise call-to-action card appears first so visiting businesses
+    // immediately see how to get listed
+    classifiedsContainer.appendChild(createAdvertiseCtaCard());
+
     // Populate classifieds
     populateClassifieds(classifiedsContainer);
 }
@@ -240,19 +244,63 @@ function createNavigation(parent) {
     homeLink.textContent = 'Home';
     homeItem.appendChild(homeLink);
     
+    const ideasItem = document.createElement('li');
+    const ideasLink = document.createElement('a');
+    ideasLink.href = './kindness-ideas.html';
+    ideasLink.textContent = 'Kindness Ideas';
+    ideasItem.appendChild(ideasLink);
+
     const classifiedsItem = document.createElement('li');
     const classifiedsLink = document.createElement('a');
     classifiedsLink.href = './classifieds.html';
     classifiedsLink.textContent = 'Classifieds';
     classifiedsItem.appendChild(classifiedsLink);
-    
+
+    const advertiseItem = document.createElement('li');
+    const advertiseLink = document.createElement('a');
+    advertiseLink.href = './advertise.html';
+    advertiseLink.textContent = 'Advertise';
+    advertiseItem.appendChild(advertiseLink);
+
     navList.appendChild(homeItem);
+    navList.appendChild(ideasItem);
     navList.appendChild(classifiedsItem);
+    navList.appendChild(advertiseItem);
     
     nav.appendChild(logo);
     nav.appendChild(navList);
     
     parent.appendChild(nav);
+}
+
+/**
+ * Create the "Advertise here" call-to-action card
+ * @returns {HTMLElement} - The created CTA card element
+ */
+function createAdvertiseCtaCard() {
+    const card = document.createElement('div');
+    card.className = 'classified-card advertise-cta-card';
+
+    const title = document.createElement('h3');
+    title.textContent = 'Your Listing Here';
+    card.appendChild(title);
+
+    const category = document.createElement('div');
+    category.className = 'category';
+    category.textContent = 'Advertise';
+    card.appendChild(category);
+
+    const description = document.createElement('p');
+    description.textContent = 'Run an ethical business or community project? Reach a values-driven audience with a curated listing, starting at $15/month.';
+    card.appendChild(description);
+
+    const link = document.createElement('a');
+    link.href = './advertise.html';
+    link.className = 'action-button cta-button';
+    link.textContent = 'See pricing →';
+    card.appendChild(link);
+
+    return card;
 }
 
 /**

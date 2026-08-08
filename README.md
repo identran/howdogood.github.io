@@ -21,6 +21,13 @@
 - Clean, distraction-free layout for easy readability
 - Support for various categories of services and products
 
+### 💡 Kindness Ideas Page
+- Static, search-engine-friendly list of all acts of kindness, grouped by theme
+
+### 💼 Advertise Page
+- Pricing and ordering information for paid classified listings
+- See [docs/MONETIZATION.md](docs/MONETIZATION.md) for the full revenue playbook
+
 ## 🎨 Design & Aesthetics
 
 - **Color Palette**: Dark mode-oriented with muted, neutral tones
