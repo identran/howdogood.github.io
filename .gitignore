@@ -34,3 +34,6 @@ package-lock.json
 # Local dev environment
 .claude/
 favicon_local_backup/
+
+# v2 lockfile is required for CI (npm ci)
+!v2/package-lock.json

@@ -25,8 +25,8 @@ function Nav() {
         <li><NavLink className={NAV_LINK_CLASS} to="/">Explorer</NavLink></li>
         <li><NavLink className={NAV_LINK_CLASS} to="/rankings/most-good-per-dollar">Rankings</NavLink></li>
         <li><NavLink className={NAV_LINK_CLASS} to="/data">The Data</NavLink></li>
-        <li><a className={NAV_LINK_CLASS} href="https://www.howdogood.com/classifieds.html">Classifieds</a></li>
-        <li><a className={NAV_LINK_CLASS} href="https://www.howdogood.com/advertise.html">Get Listed</a></li>
+        <li><NavLink className={NAV_LINK_CLASS} to="/classifieds">Classifieds</NavLink></li>
+        <li><NavLink className={NAV_LINK_CLASS} to="/get-listed">Get Listed</NavLink></li>
       </ul>
     </nav>
   );

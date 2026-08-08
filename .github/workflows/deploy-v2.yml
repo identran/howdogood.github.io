@@ -1,0 +1,63 @@
+# ============================================================
+# File:    deploy-v2.yml
+# Date:    2026-08-08
+# Data:    v2/ source -> GitHub Pages artifact (www.howdogood.com)
+# Purpose: Build the v2 React app and deploy it as the Pages site.
+#          configure-pages switches the Pages source to workflow
+#          deploys; if that fails, the legacy branch build keeps
+#          serving v1 (safe failure mode).
+# ============================================================
+name: Deploy v2 to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: v2/package-lock.json
+
+      - name: Install dependencies
+        working-directory: v2
+        run: npm ci
+
+      - name: Build (validates dataset, compiles, generates static pages)
+        working-directory: v2
+        run: npm run build
+
+      - name: Configure Pages (switches source to workflow deploys)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: v2/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

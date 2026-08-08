@@ -12,6 +12,8 @@ import { HomePage } from "@/pages/home";
 import { ActionDetailPage } from "@/pages/action-detail";
 import { RankingsPage } from "@/pages/rankings";
 import { DataPage } from "@/pages/data-page";
+import { ClassifiedsPage } from "@/pages/classifieds";
+import { GetListedPage } from "@/pages/get-listed";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/action/:id" element={<ActionDetailPage />} />
           <Route path="/rankings/:slug" element={<RankingsPage />} />
           <Route path="/data" element={<DataPage />} />
+          <Route path="/classifieds" element={<ClassifiedsPage />} />
+          <Route path="/get-listed" element={<GetListedPage />} />
           <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>

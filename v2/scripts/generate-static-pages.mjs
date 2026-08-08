@@ -46,6 +46,18 @@ const routes = [
     description:
       "How our impact estimates work: confidence grades, sources policy, and the limits of the 0-100 score.",
   },
+  {
+    path: "classifieds",
+    title: "Curated Classifieds - How Do Good?",
+    description:
+      "Curated classifieds for ethically-aligned services, products and community projects. Every listing manually reviewed.",
+  },
+  {
+    path: "get-listed",
+    title: "Get Listed - How Do Good?",
+    description:
+      "Community listings are free; business listings cost $10 for 30 days. No subscriptions, no lock-in.",
+  },
   ...RANKINGS.map((r) => ({
     path: `rankings/${r.slug}`,
     title: `${r.title} - How Do Good?`,
@@ -89,6 +101,48 @@ writeFileSync(
   template.replace("</head>", `  <link rel="canonical" href="${ORIGIN}/" />\n  </head>`),
 );
 copyFileSync(join(dist, "index.html"), join(dist, "404.html"));
+
+/* ┌──────────────────────────────────────┐
+    LEGACY V1 URL REDIRECTS
+└──────────────────────────────────────┘ */
+
+// v1 lived at flat .html URLs; GitHub Pages has no server redirects, so
+// emit meta-refresh stubs with canonicals pointing at the new routes.
+const LEGACY = [
+  { from: "classifieds.html", to: "/classifieds/" },
+  { from: "advertise.html", to: "/get-listed/" },
+  { from: "kindness-ideas.html", to: "/" },
+];
+
+for (const { from, to } of LEGACY) {
+  const target = `${ORIGIN}${to}`;
+  writeFileSync(
+    join(dist, from),
+    `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>How Do Good?</title>
+  <meta http-equiv="refresh" content="0; url=${target}" />
+  <link rel="canonical" href="${target}" />
+</head>
+<body><p>This page has moved to <a href="${target}">${target}</a>.</p></body>
+</html>
+`,
+  );
+}
+
+/* ┌──────────────────────────────────────┐
+    ROBOTS & CNAME
+└──────────────────────────────────────┘ */
+
+writeFileSync(
+  join(dist, "robots.txt"),
+  `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`,
+);
+
+// Custom-domain file (kept in the artifact so Pages retains the domain)
+copyFileSync(join(root, "..", "CNAME"), join(dist, "CNAME"));
 
 /* ┌──────────────────────────────────────┐
     SITEMAP
