@@ -8,6 +8,7 @@ purpose: Interactive controls (money, time, courage) that rank the
 */
 
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { actions, type Action, type ActionKind } from "@/data/actions";
@@ -54,7 +55,12 @@ function ActionCard({ action }: { action: Action }) {
     <div className="flex flex-col rounded-lg border border-border bg-card p-5">
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-semibold leading-snug text-foreground">
-          {action.title}
+          <Link
+            to={`/action/${action.id}`}
+            className="transition-colors hover:text-primary"
+          >
+            {action.title}
+          </Link>
         </h3>
         <span
           className="mt-1 inline-block size-2.5 shrink-0 rounded-full"
